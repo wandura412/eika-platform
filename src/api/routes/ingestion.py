@@ -4,9 +4,24 @@ from src.services.vector_store import VectorDBService
 import os
 import uuid
 
+# ... existing imports ...
+
 router = APIRouter()
 doc_processor = DocumentProcessor()
 vector_service = VectorDBService()
+
+
+@router.delete("/reset")
+def reset_knowledge_base():
+    """
+    DANGER: Wipes the entire vector database.
+    Use this to clear old documents before uploading new ones.
+    """
+    success = vector_service.clear_database()
+    if not success:
+        raise HTTPException(status_code=500, detail="Failed to clear database")
+    
+    return {"message": "Knowledge base has been successfully cleared."}
 
 async def bg_process_document(file_path: str, original_filename: str):
     try:
