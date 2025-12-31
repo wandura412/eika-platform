@@ -1,10 +1,11 @@
 import requests
 from typing import List
+from src.core.config import settings
 
 class LLMService:
     def __init__(self):
-        # Ollama runs on port 11434 by default
-        self.ollama_api_url = "http://localhost:11434/api/generate"
+        # Use the variable from config
+        self.ollama_api_url = settings.OLLAMA_BASE_URL 
         self.model = "llama3"
 
     def generate_response(self, query: str, context_chunks: List[dict]) -> str:

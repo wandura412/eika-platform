@@ -19,7 +19,7 @@ class VectorDBService:
             model_name=settings.EMBEDDING_MODEL_NAME
         )
 
-        # NOTE: We do NOT store self.collection here anymore.
+        # NOTE: self.collection is not stored here anymore.
         # This prevents the "stale reference" bug.
 
     @property

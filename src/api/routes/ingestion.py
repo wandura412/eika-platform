@@ -4,8 +4,6 @@ from src.services.vector_store import VectorDBService
 import os
 import uuid
 
-# ... existing imports ...
-
 router = APIRouter()
 doc_processor = DocumentProcessor()
 vector_service = VectorDBService()
@@ -15,7 +13,7 @@ vector_service = VectorDBService()
 def reset_knowledge_base():
     """
     DANGER: Wipes the entire vector database.
-    Use this to clear old documents before uploading new ones.
+    This is used to clear old documents before uploading new ones.
     """
     success = vector_service.clear_database()
     if not success:

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Service 1: The Backend
+  api:
+    build: .
+    container_name: eika-backend
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the local folder to the container so database persists
+      - ./chroma_db_data:/app/chroma_db_data
+    environment:
+      # Special DNS name that allows Docker to talk to your Host Machine's Ollama
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434/api/generate
+
+  # Service 2: The Frontend
+  ui:
+    build: .
+    container_name: eika-frontend
+    # Override the default command to run Streamlit
+    command: streamlit run src/ui/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      # The UI talks to the 'api' service (internal Docker DNS)
+      - API_URL=http://api:8000/api/v1
+    depends_on:
+      - api

@@ -1,8 +1,10 @@
 import streamlit as st
 import requests
+import os # <--- Import os
 
 # Configuration
-API_BASE_URL = "http://127.0.0.1:8000/api/v1"
+# If "API_URL" is set in the environment (Docker), use it. Otherwise use localhost.
+API_BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000/api/v1")
 
 st.set_page_config(page_title="EIKA Knowledge Assistant", page_icon="🤖", layout="wide")
 
