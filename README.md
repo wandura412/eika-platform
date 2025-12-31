@@ -29,7 +29,7 @@ graph LR
     Service -->|Store/Retrieve| DB[(ChromaDB)]
     API -->|Generate Answer| LLM[LLM Service]
     LLM -->|Inference| Ollama["Ollama (Llama 3)"]
-
+```
 ## 🚀 Features
 
 * **📄 Document Ingestion:** Asynchronous processing of PDF files.
