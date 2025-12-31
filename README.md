@@ -1,4 +1,4 @@
-# Enterprise Intelligent Knowledge Assistant (EIKA) 🤖
+# Enterprise Intelligent Knowledge Assistant (EIKA)
 
 **A secure, offline-first Retrieval-Augmented Generation (RAG) platform built with Python, FastAPI, and Local LLMs.**
 
@@ -8,7 +8,7 @@
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
 ![Llama 3](https://img.shields.io/badge/Model-Llama3-purple)
 
-## 📖 Project Overview
+## Project Overview
 
 EIKA is a microservices-based AI application designed to ingest corporate documents (PDFs) and allow users to query them using natural language. Unlike standard RAG demos, EIKA is built with **production-grade architecture** in mind:
 
@@ -17,7 +17,7 @@ EIKA is a microservices-based AI application designed to ingest corporate docume
 * **Privacy First:** Runs entirely offline using local embeddings and Llama 3 via Ollama.
 * **Containerized:** Fully dockerized for easy deployment.
 
-## 🏗️ Architecture
+## Architecture
 
 The system follows a **Clean Architecture** pattern, separating the "Storefront" (API) from the "Warehouse" (Business Logic).
 
@@ -30,15 +30,15 @@ graph LR
     API -->|Generate Answer| LLM[LLM Service]
     LLM -->|Inference| Ollama["Ollama (Llama 3)"]
 ```
-## 🚀 Features
+## Features
 
-* **📄 Document Ingestion:** Asynchronous processing of PDF files.
-* **🧠 Semantic Search:** Uses `sentence-transformers/all-MiniLM-L6-v2` for high-speed vector retrieval.
-* **💬 Interactive Chat:** "ChatGPT-like" interface with streaming responses and history.
-* **🔍 Source Citations:** Every answer cites the specific page number and paragraph context.
-* **🗑️ Database Management:** One-click database reset via the UI.
+* **Document Ingestion:** Asynchronous processing of PDF files.
+* **Semantic Search:** Uses `sentence-transformers/all-MiniLM-L6-v2` for high-speed vector retrieval.
+* **Interactive Chat:** "ChatGPT-like" interface with streaming responses and history.
+* **Source Citations:** Every answer cites the specific page number and paragraph context.
+* **Database Management:** One-click database reset via the UI.
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 Before running the project, ensure you have the following installed:
 
@@ -48,7 +48,7 @@ Before running the project, ensure you have the following installed:
     * Pull the model: `ollama pull llama3`
     * **Crucial:** Ensure Ollama is running in the background.
 
-## ⚡ Quick Start (Docker)
+## Quick Start (Docker)
 
 The easiest way to run EIKA is using Docker Compose. This spins up the API and UI in isolated containers.
 
@@ -69,7 +69,7 @@ The easiest way to run EIKA is using Docker Compose. This spins up the API and U
 
 *(Note: The Docker setup assumes you are running Ollama on your host machine. It connects via `host.docker.internal`.)*
 
-## 🔧 Local Development (Manual Setup)
+## Local Development (Manual Setup)
 
 If you prefer to run it without Docker for debugging:
 
@@ -97,6 +97,6 @@ If you prefer to run it without Docker for debugging:
     streamlit run src/ui/streamlit_app.py
     ```
 
-## 🛡️ License
+## License
 
 This project is open-source and available under the MIT License.
