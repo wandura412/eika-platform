@@ -28,4 +28,4 @@ graph LR
     API -->|Ingest/Search| Service[Vector Service]
     Service -->|Store/Retrieve| DB[(ChromaDB)]
     API -->|Generate Answer| LLM[LLM Service]
-    LLM -->|Inference| Ollama[Ollama (Llama 3)]
+    LLM -->|Inference| Ollama["Ollama (Llama 3)"]
